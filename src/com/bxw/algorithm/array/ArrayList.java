@@ -27,6 +27,10 @@ public class ArrayList<E> {
         return data.length;
     }
 
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
     public void add(E e){
         if (size >= data.length){
             resize(2 * data.length);
@@ -36,7 +40,18 @@ public class ArrayList<E> {
     }
 
     public E get(int index){
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("index error");
+        }
         return data[index];
+    }
+
+    public E getFirst(){
+        return get(0);
+    }
+
+    public E getLast(){
+        return get(size - 1);
     }
 
     public void set(int index, E e){
@@ -60,6 +75,15 @@ public class ArrayList<E> {
         }
         return ret;
     }
+
+    public E removeFirst(){
+        return remove(0);
+    }
+
+    public E removeLast(){
+        return remove(size - 1);
+    }
+
 
 
 
